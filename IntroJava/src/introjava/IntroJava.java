@@ -5,6 +5,8 @@
  */
 package introjava;
 
+import java.util.Scanner;
+
 /**
  *
  * @author noite
@@ -15,7 +17,9 @@ public class IntroJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int num = 0;
+        int num;
+        String nome = null;
+        Scanner read = new Scanner(System.in);
     }
     
 }
