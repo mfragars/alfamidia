@@ -20,6 +20,11 @@ public class IntroJava {
         int num;
         String nome = null;
         Scanner read = new Scanner(System.in);
+        
+        System.out.println("Informe um numero");
+        num = read.nextInt();
+        
+        System.out.println("O numero informado foi " + num);
     }
     
 }
