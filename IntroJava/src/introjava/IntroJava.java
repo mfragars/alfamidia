@@ -15,7 +15,7 @@ public class IntroJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int num;
+        int num = 0;
     }
     
 }
