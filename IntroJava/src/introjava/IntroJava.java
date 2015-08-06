@@ -17,14 +17,9 @@ public class IntroJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int num;
-        String nome = null;
-        Scanner read = new Scanner(System.in);
-        
-        System.out.println("Informe um numero");
-        num = read.nextInt();
-        
-        System.out.println("O numero informado foi " + num);
+        Aves passaro = new Aves();
+        String resultado = passaro.Comer();
+        System.out.println(resultado);
     }
     
 }
