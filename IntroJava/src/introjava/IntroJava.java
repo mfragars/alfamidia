@@ -18,10 +18,14 @@ public class IntroJava {
      */
     public static void main(String[] args) {
         Aves passaro = new Aves();
-        String mensagem = passaro.Comer();
-        if(mensagem.equalsIgnoreCase("MAIS")){
-            System.out.println("Vou mandar mais comida");
-        }
+        String alimento = null;
+        Scanner read = new Scanner(System.in);
+        
+        System.out.println("Informe o alimento");
+        alimento = read.next();
+        
+        String mensagem = passaro.Comer(alimento);
+        
         System.out.println(mensagem);
     }
     
