@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.Date"%>
+<%@page language="java" import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,11 +17,12 @@
         <% String mensagem = "Bem Vindo"; 
         
         out.println(new Date().toString());
-        
+        int dia = Integer.parseInt((new SimpleDateFormat("yyyy")).format(new Date()));
         %>
         <h1>Hello Word</h1>
             
-        <% out.println(mensagem); %>
+        <h2><% out.println(mensagem); %></h2>
+        <h2>Data <% out.println(dia);%></h2>
         
     </body>
 </html>
