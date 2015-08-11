@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,14 @@
         <title>Loja Virtual</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <% String mensagem = "Bem Vindo"; 
+        
+        out.println(new Date().toString());
+        
+        %>
+        <h1>Hello Word</h1>
+            
+        <% out.println(mensagem); %>
+        
     </body>
 </html>
