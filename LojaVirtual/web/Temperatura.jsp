@@ -9,24 +9,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Conversor de Temperatura</title>
     </head>
     <body>
+        <p>Coversor de Temperatura</p>
         <% String valor = request.getParameter("Celcius");
+            double f = 0;
             if(valor != null){
-            double f = Double.parseDouble(valor)*9/5+32;
-            out.println("<P>");
-            out.println("<h2>Valor em Fahrenheit:" +f +"<h2><br>");
-            }
+            f = Double.parseDouble(valor)*9/5+32;
+            } 
         %>
         
         <form action="Temperatura.jsp" method="POST">
             Celcius <input type="text size=20" name="Celcius"><br>
-            <input type="submit">
+            
+            <input type="submit" value="Enviar">
+            
         </form>
         
         
-        
+        <h2> <%="O valor convertido é: " + f%> </h2>
+            
         
     </body>
 </html>
