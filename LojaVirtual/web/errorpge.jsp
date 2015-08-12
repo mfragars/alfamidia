@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body bgcolor="red">
         
         <%@page isErrorPage="true" %>
         <h1>The exception <%= exception.getMessage()%></h1>
