@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="javax.servlet.http.Cookie"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +14,16 @@
     </head>
     <body>
         
-        <form method="POST" action="form2.jsp">
+        <%
+            
+           
+            
+        %>
+        
+        <form method="POST" action="HelloServlet">
         Nome:<input type="text" size="20" name="nome"><br>
         Telefone:<input type="text" size="20" name="telefone"><br>
+        Color:<input type="text" size="20" name="color"><br>
         <input type="submit" name="submit" value="Enviar">
         </form>
         
