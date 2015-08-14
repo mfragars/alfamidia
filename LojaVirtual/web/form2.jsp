@@ -16,7 +16,9 @@
         
         <%
             
-           
+            Cookie[] cookies = request.getCookies();
+            
+            out.println(cookies.length);
             
         %>
         
