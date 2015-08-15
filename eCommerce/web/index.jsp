@@ -25,26 +25,13 @@
                     </tr>
                     <tr>
                         <td celspan="2" ><input type="submit" name="Login"</td>
+                         <td celspan="2" ><%= request.getParameter("form")%></td>
                     </tr>
-                    <tr>
-                        <td celspan="2" ><%
-                            
-                            String valor = request.getParameter("form");
-                            
-                            if(valor == "0"){
-                              %>
-                              <h3>Preencha os dados<h3>
-                              <%
-                            }
-                                    
-                            %></td>
-                    </tr>
-                    
             </table>
             </form>
         </header>
         <section>
-            <li>Loja Virtual</li>
+            <li>Loja Virtual:::: seja bem vindo <%= session.getAttribute("Usuario") %></li>
             <article>
                 <table width="200" border="1">
                     <tr>
@@ -68,7 +55,7 @@
             
         </section>
         <footer>
-            
+            <%@include file="include/rodape.jsp" %>
         </footer>
     </body>
 </html>

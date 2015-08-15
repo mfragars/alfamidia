@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.catalina.Session;
 
 /**
  *
@@ -33,11 +35,28 @@ public class login extends HttpServlet {
             
             String user = request.getParameter("user");
             String pwd = request.getParameter("pwd");
+            String msg = null;
             
             if(user != null && user.length() > 0 && pwd != null && pwd.length() > 0){
                 
+                if("joao".equals(user)){
+                   
+                   msg = "joao";
+                   response.sendRedirect("index.jsp?form=" + msg);
+                   HttpSession sessao = request.getSession();
+                   sessao.setAttribute("Usuario", user);
+                }else if("fred".equals(user)){
+                   msg = "fred";
+                   response.sendRedirect("index.jsp?form=" + msg);
+                   
+                }else if("mauricio".equals(user)){
+                    msg = "mauricio";
+                   response.sendRedirect("index.jsp?form=" + msg);
+                   
+                }
             }else {
-                response.sendRedirect("index.jsp?form=0");
+                msg = "Dados Invalidos";
+                response.sendRedirect("index.jsp?form=" + msg);
                 }
             
         } finally {
