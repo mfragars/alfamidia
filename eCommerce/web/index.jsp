@@ -29,10 +29,28 @@
                     </tr>
             </table>
             </form>
+            
+            <%
+            String usuario = null;
+            Cookie[] cookies = request.getCookies();
+                
+                if(cookies != null){
+                    for(Cookie cookie : cookies){
+                        if(cookie.getName().equals("usuario"))
+                            usuario = cookie.getValue();
+                    }
+                }
+            %>
+            
+            
+            <h3>OI <%=usuario %>,<%=request.getParameter("form")%></h3>
+                    
         </header>
         <section>
-            <li>Loja Virtual:::: seja bem vindo <%= session.getAttribute("Usuario") %></li>
+            <br>
+            <li>Loja Virtual :::: Seja Bem Vindo <%= session.getAttribute("nome") %></li>
             <article>
+                <br>
                 <table width="200" border="1">
                     <tr>
                         <td>  </td>

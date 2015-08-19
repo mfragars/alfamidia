@@ -6,6 +6,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,9 @@ import org.apache.catalina.Session;
  * @author noite
  */
 public class login extends HttpServlet {
+    
+    private String USER = "admin";
+    private String PWD = "pass";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,27 +41,25 @@ public class login extends HttpServlet {
             String pwd = request.getParameter("pwd");
             String msg = null;
             
-            if(user != null && user.length() > 0 && pwd != null && pwd.length() > 0){
-                
-                if("joao".equals(user)){
-                   
-                   msg = "joao";
-                   response.sendRedirect("index.jsp?form=" + msg);
-                   HttpSession sessao = request.getSession();
-                   sessao.setAttribute("Usuario", user);
-                }else if("fred".equals(user)){
-                   msg = "fred";
-                   response.sendRedirect("index.jsp?form=" + msg);
-                   
-                }else if("mauricio".equals(user)){
-                    msg = "mauricio";
-                   response.sendRedirect("index.jsp?form=" + msg);
-                   
-                }
-            }else {
-                msg = "Dados Invalidos";
+            
+            if(USER.equals(user) && PWD.equals(pwd)){
+                msg = "Autenticado com sucesso";
+                Cookie autenticacaoCookie = new Cookie("usuario",user);
+                // Tempo de expiração usuario
+                autenticacaoCookie.setMaxAge(20*60);
+                response.addCookie(autenticacaoCookie);
                 response.sendRedirect("index.jsp?form=" + msg);
-                }
+                //msg = "Login com Sucesso";
+                //response.sendRedirect("index.jsp?form=" + msg);
+                
+                
+            HttpSession session = request.getSession();
+            session.setAttribute("nome", user);
+                            
+            }else {
+                msg = "Dados de login inválidos";
+                response.sendRedirect("index.jsp?form=" + msg);
+            }
             
         } finally {
             out.close();
