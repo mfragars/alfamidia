@@ -46,7 +46,7 @@ public class login extends HttpServlet {
                 msg = "Autenticado com sucesso";
                 Cookie autenticacaoCookie = new Cookie("usuario",user);
                 // Tempo de expiração usuario
-                autenticacaoCookie.setMaxAge(20*60);
+                autenticacaoCookie.setMaxAge(3*60);
                 response.addCookie(autenticacaoCookie);
                 response.sendRedirect("index.jsp?form=" + msg);
                 //msg = "Login com Sucesso";

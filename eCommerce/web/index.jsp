@@ -44,7 +44,8 @@
             
             
             <h3>OI <%=usuario %>,<%=request.getParameter("form")%></h3>
-                    
+            <br>
+            <p><a href='logou.jsp'> SAIR </p>
         </header>
         <section>
             <br>
@@ -54,18 +55,18 @@
                 <table width="200" border="1">
                     <tr>
                         <td>  </td>
-                        <td>&nsb</td>
-                        <td>&nsb</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
                     </tr>
                      <tr>
-                        <td>&nsb</td>
-                        <td>&nsb</td>
-                        <td>&nsb</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
                     </tr>
                     <tr>
-                        <td>&nsb</td>
-                        <td>&nsb</td>
-                        <td>&nsb</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
                     </tr>
                 </table>
                 
