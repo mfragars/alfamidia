@@ -107,7 +107,27 @@ public class Controle extends HttpServlet {
                                 
             }catch(Exception e){
                 response.sendRedirect("http://localhost:8080/QuintoProjeto/erro.html");
+            }
         }
+        
+        if(acao.equals("lista")){
+            
+            try{
+                Conexao conn = new Conexao();
+                
+                out.print("<h1>Produto Selecionado</h1>");
+                for(Produto p:conn.lista()){
+                out.print("Id: "+ p.getId()+"<br>");
+                out.print("Nome: "+ p.getNome()+"<br>");
+                out.print("Descricao: "+ p.getDescricao()+"<br>");
+                out.print("Valor: R$"+ p.getValor()+"<br>");
+                
+                }
+             out.print("<a href='http://localhost:8080/QuintoProjeto/menu.html'>Menu</a>");
+            }catch(Exception e){
+                response.sendRedirect("http://localhost:8080/QuintoProjeto/erro.html");
+            }
+            
         }
     }
 
