@@ -4,7 +4,7 @@
     Author     : noite
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="true"%>
 <%@taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://java.sun.com/jstl/sql" prefix="sql" %>
@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
         <title>Produto JSP</title>
     </head>
     <body>
@@ -28,20 +28,22 @@
         <%-- Formatação de Data --%>
         
         <%-- Core --%>
-        <%--
+        
         <jsp:useBean class="modelo.Produto" id="p" scope="page">
             <jsp:setProperty name="p" property="id" value="10"></jsp:setProperty>
-            <c:set var="cod" value="#{p.id}"></c:set>
-            <c:if test="#{cod > 9}">
-                <c:out value="#{cod}"></c:out>
+           
+            <c:if test="${p.id > 9}">
+                <c:out value="${p.id}"></c:out><br>
+                <c:out value="ID"></c:out>
             </c:if>
         </jsp:useBean>
-        --%>
+        
         
         <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/comercio" user="root" password="" var="conn"></sql:setDataSource>
         
-        <sql:query sql="select * from comercio" dataSource="#{conn}" var="query"></sql:query>
-        <c:forEach items="#{query.rows}" var="result"></c:forEach>
-        <c:out value="#{result}" ></c:out>
+        <sql:query sql="select * from produto" dataSource="${conn}" var="query"></sql:query>
+        <c:forEach items="${query.rows}" var="result">
+            <c:out value="${result.nome}" ></c:out><br>
+        </c:forEach>
     </body>
 </html>
