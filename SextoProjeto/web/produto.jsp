@@ -26,6 +26,8 @@
         <br><h3><jsp:getProperty name="produto" property="nome"></jsp:getProperty></h3>
         
         <%-- Formatação de Data --%>
+        <fmt:formatDate value="${java.util.Date}" dateStyle="yyyy" var="g" type="number"></fmt:formatDate>
+        <c:out value="${g}" ></c:out>
         
         <%-- Core --%>
         
@@ -43,7 +45,8 @@
         
         <sql:query sql="select * from produto" dataSource="${conn}" var="query"></sql:query>
         <c:forEach items="${query.rows}" var="result">
-            <c:out value="${result.nome}" ></c:out><br>
+            <c:out value="${result.nome} " ></c:out>
+            <c:out value="${result.preco} "></c:out> <br>
         </c:forEach>
     </body>
 </html>
