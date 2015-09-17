@@ -6,7 +6,20 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        
+        <h:form>
+            <h:outputLabel value="ID"></h:outputLabel>
+            <h:inputText value="#{managerProduto.produto.id}"></h:inputText><br></br>
+            <h:outputLabel value="Nome"></h:outputLabel>
+            <h:inputText value="#{managerProduto.produto.nome}"></h:inputText><br></br>
+            <h:outputLabel value="Descricao"></h:outputLabel>
+            <h:inputText value="#{managerProduto.produto.descricao}"></h:inputText><br></br>
+            <h:outputLabel value="Valor"></h:outputLabel>
+            <h:inputText value="#{managerProduto.produto.valor}"></h:inputText><br></br>
+            <h:commandButton action="#{managerProduto.insere}" value="Inserir" title="Inserir"/>
+            
+            <h:outputText id="texto"></h:outputText>
+            <h:outputText value="#{managerProduto.msn}"></h:outputText>
+        </h:form>
     </h:body>
 </html>
 
