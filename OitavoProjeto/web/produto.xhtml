@@ -24,10 +24,10 @@
                     <h:outputText value="#{prod.valor}"></h:outputText>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="#{prod.id}"></h:commandButton>
+                    <h:commandButton action="#{managerProduto.selectProduto(prod.id)}" value="Editar"></h:commandButton>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="#{prod.id}"></h:commandButton>
+                    <h:commandButton action="#{managerProduto.exclui(prod.id)}" value="Ecluir"></h:commandButton>
                 </h:column>
             </h:dataTable>
         </h:form>

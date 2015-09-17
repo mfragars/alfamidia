@@ -59,6 +59,7 @@ public class ManagerProduto {
     }
     
     public String insere(){
+        FacesContext ct = FacesContext.getCurrentInstance();
         try{
             Conexao c = new Conexao();
             this.msn = c.insere(this.produto);
@@ -66,16 +67,16 @@ public class ManagerProduto {
             this.produto.setNome("");
             this.produto.setDescricao("");
             this.produto.setValor(0.0);
-            FacesContext ct = FacesContext.getCurrentInstance();
-            ct.addMessage(null, new FacesMessage("Inserido com Sucesso!!"));
-            
+            ct.addMessage(null, new FacesMessage(this.msn));
         }catch(Exception e){
-            return e.getMessage();
+            ct.addMessage(null, new FacesMessage(e.getMessage()));
+            return "";
         }
         return "Inserido com Sucesso!!!";
     }
     
     public String atualiza(){
+        FacesContext ct = FacesContext.getCurrentInstance();
         try{
             Conexao c = new Conexao();
             this.msn = c.atualiza(this.produto);
@@ -83,14 +84,42 @@ public class ManagerProduto {
             this.produto.setNome("");
             this.produto.setDescricao("");
             this.produto.setValor(0.0);
-            FacesContext ct = FacesContext.getCurrentInstance();
-            ct.addMessage(null, new FacesMessage("Atualizado com Sucesso!!"));
-            
+            ct.addMessage(null, new FacesMessage(this.msn));
         }catch(Exception e){
-            return e.getMessage();
+            ct.addMessage(null, new FacesMessage(e.getMessage()));
+            return "";
         }
         return "Atualizado com Sucesso!!!";
     }
     
+    public String exclui(int id){
+        FacesContext ct = FacesContext.getCurrentInstance();
+        try{
+            Conexao c = new Conexao();
+            this.msn = c.excluir(this.produto.getId());
+            this.produto.setId(0);
+            this.produto.setNome("");
+            this.produto.setDescricao("");
+            this.produto.setValor(0.0);
+            ct.addMessage(null, new FacesMessage(this.msn));
+        }catch(Exception e){
+            ct.addMessage(null, new FacesMessage(e.getMessage()));
+            return "";
+        }
+        return "Atualizado com Sucesso!!!";
+    }
+    
+    public String selectProduto(int id){
+        FacesContext ct = FacesContext.getCurrentInstance();
+        try{
+            Conexao c = new Conexao();
+            this.produto = c.getProduto(id);
+            ct.addMessage(null, new FacesMessage(this.msn));
+        }catch(Exception e){
+            ct.addMessage(null, new FacesMessage(e.getMessage()));
+        }
+        
+        return "insereproduto";
+    }
     
 }

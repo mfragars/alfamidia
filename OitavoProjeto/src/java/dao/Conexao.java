@@ -70,12 +70,12 @@ public class Conexao {
         return result;
     }
     
-    public String excluir(Produto produto){
+    public String excluir(int Id){
         try{
             
             Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/comercio", "root", "");
             PreparedStatement query = conexao.prepareStatement("DELETE FROM produto WHERE Id = ?");
-            query.setInt(1,produto.getId());
+            query.setInt(1,Id);
             
             result = query.executeUpdate() == 1?"Excluido":"Não Excluido";
             conexao.close();
