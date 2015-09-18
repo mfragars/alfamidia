@@ -72,10 +72,11 @@ public class ManagerProduto {
             ct.addMessage(null, new FacesMessage(e.getMessage()));
             return "";
         }
-        return "Inserido com Sucesso!!!";
+        return "produto";
     }
     
     public String atualiza(){
+        this.msn = null;
         FacesContext ct = FacesContext.getCurrentInstance();
         try{
             Conexao c = new Conexao();
@@ -89,14 +90,14 @@ public class ManagerProduto {
             ct.addMessage(null, new FacesMessage(e.getMessage()));
             return "";
         }
-        return "Atualizado com Sucesso!!!";
+        return "produto";
     }
     
     public String exclui(int id){
         FacesContext ct = FacesContext.getCurrentInstance();
         try{
             Conexao c = new Conexao();
-            this.msn = c.excluir(this.produto.getId());
+            this.msn = c.excluir(id);
             this.produto.setId(0);
             this.produto.setNome("");
             this.produto.setDescricao("");
@@ -106,10 +107,15 @@ public class ManagerProduto {
             ct.addMessage(null, new FacesMessage(e.getMessage()));
             return "";
         }
-        return "Atualizado com Sucesso!!!";
+        return "produto";
+    }
+    
+    public String confirmaExclusao(int id){
+        return "confirmaExclusao";
     }
     
     public String selectProduto(int id){
+        this.msn = null;
         FacesContext ct = FacesContext.getCurrentInstance();
         try{
             Conexao c = new Conexao();
@@ -120,6 +126,14 @@ public class ManagerProduto {
         }
         
         return "insereproduto";
+    }
+    
+    public String insereProduto(){
+        return "insereproduto";
+    }
+    
+    public String listaProduto(){
+        return "produto";
     }
     
 }

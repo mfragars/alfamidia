@@ -1,25 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://java.sun.com/jsf/core"
+      >
     <h:head>
-        <title>Facelet Title</title>
+        <title>Produtos</title>
+        <script type="text/javascript">
+            function alerta(){
+            alert("Bom dia, amigos do Java");
+            }
+        </script>
     </h:head>
     <h:body>
         <h:form>
+            
             <h:outputLabel value="ID"></h:outputLabel>
             <h:inputText value="#{managerProduto.produto.id}"></h:inputText><br></br>
             <h:outputLabel value="Nome"></h:outputLabel>
-            <h:inputText  value="#{managerProduto.produto.nome}"></h:inputText><br></br>
+            <h:inputText  value="#{managerProduto.produto.nome}" required="true" requiredMessage="Digite o nome do produto"></h:inputText><br></br>
             <h:outputLabel value="Descricao"></h:outputLabel>
-            <h:inputText size="60" value="#{managerProduto.produto.descricao}"></h:inputText><br></br>
+            <h:inputText size="60" value="#{managerProduto.produto.descricao}" id="descricao"><c:validateRequired for="descricao"/></h:inputText><br></br>
             <h:outputLabel value="Valor"></h:outputLabel>
             <h:inputText value="#{managerProduto.produto.valor}"></h:inputText><br></br>
-            <h:commandButton action="#{managerProduto.insere}" value="Inserir" title="Inserir"/>
-            
+            <h:commandButton action="#{managerProduto.insere}" value="Inserir" title="Inserir"/><br/>
+            <h:commandButton action="#{managerProduto.atualiza()}" value="Atualizar" title="Inserir"/><br/>
+            <h:button onclick="alerta()" value="Mensagem"></h:button>
             <h:outputText value="#{managerProduto.msn}"></h:outputText>
+            
         </h:form>
-        
+        <h:messages/>
     </h:body>
 </html>
 
